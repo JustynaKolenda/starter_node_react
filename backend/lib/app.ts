@@ -5,7 +5,6 @@ import helmet = require('helmet')
 
 // Create a new express application instance
 const app: express.Application = express();
-const { check } = require('express-validator');
 
 app.use(helmet())
 app.use(bodyParser.json());
@@ -18,7 +17,11 @@ app.use(function (req, res, next) {
 });
 
  app.use(express.json());
+
+ app.get('/', function (req, res) {
+  res.send('hello world')
+})
  
-app.listen(8000, function () { 
-   console.log('Example app listening on port 8000!');
+app.listen(8070, function () { 
+   console.log('Example app listening on port 8070!');
 });
